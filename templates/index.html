@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>FCP</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      body {
+        background-image: url("/static/back.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .login {
+        text-align: center;
+      }
+      .login form input {
+        margin-bottom: 8px; /* Adjust the margin between input elements */
+      }
+
+      .login form button {
+        margin-top: 8px; /* Adjust the margin between input elements and button */
+      }
+      .login h1 {
+        color: #000000; /* Set the text color to white */
+        background-color: rgba(239, 241, 127, 0.999); /* Add a background color */
+        padding: 10px; /* Add padding for better visibility */
+        display: inline-block; /* Make the background color cover only the text width */
+      }
+      
+    </style>
+  </head>
+
+  <!-- ... your existing HTML ... -->
+
+  <body>
+    <div class="login-container">
+
+    <div class="login">
+      <h1>Flower Class Predictor</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <div class="input-container">
+          <input
+            type="text"
+            name="Sepal_Length"
+            style="text-align: center"
+            placeholder="Sepal Length"
+            required="required"
+          />
+          <input
+            type="text"
+            name="Sepal_Width"
+            style="text-align: center"
+            placeholder="Sepal Width"
+            required="required"
+          />
+          <input
+            type="text"
+            name="Petal_Length"
+            style="text-align: center"
+            placeholder="Petal Length"
+            required="required"
+          />
+          <input
+            type="text"
+            name="Petal_Width"
+            style="text-align: center"
+            placeholder="Petal Width"
+            required="required"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+
+      <br />
+      <br />
+      {{ prediction_text }}
+    </div>
+  </body>
+</html>
